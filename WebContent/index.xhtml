@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
 <h:head>
 	<title>JSF 01 - Oblicz</title>
 </h:head>
@@ -11,36 +12,42 @@
 
 	<h1>JSF 01 - Oblicz Kalorie</h1>
 
-	<h:form id="parametry">
-  		<h:selectOneRadio value="#{KalorieBB.plec}">
+	<h:form>
+		
+  		<h:selectOneRadio value="#{kalorieBB.plec}">
   		<f:selectItem itemValue="f" itemLabel="Kobieta" />
    		<f:selectItem itemValue="m" itemLabel="Mezczyzna" />
    		</h:selectOneRadio>
 		<br />
-		<h:inputText label="Wiek (10-99)" value="#{KalorieBB.wiek}">
+		<h:outputLabel for="wiek">Wiek (10-99):</h:outputLabel>
+		<h:inputText id="wiek" value="#{kalorieBB.wiek}" p:placeholder="Wiek 10-99">
     	<f:convertNumber integerOnly="true" type="number" />
     	<f:validateLongRange minimum="10" maximum="99" />
 		</h:inputText>
 		<br />
-  		<h:inputText label="Waga (kg)" value="#{KalorieBB.waga}">
+		<h:outputLabel for="waga">Waga(kg):</h:outputLabel>
+  		<h:inputText id="waga" value="#{kalorieBB.waga}" p:placeholder="Waga (kg)">
   		<f:convertNumber integerOnly="true" type="number" />
   		</h:inputText>
 		<br />
-		<h:inputText label="Wzrost (cm)" value="#{KalorieBB.wzrost}">
+		<h:outputLabel for="wzrost">Wzrost(cm):</h:outputLabel>
+		<h:inputText id="wzrost" value="#{kalorieBB.wzrost}" p:placeholder="Wzrost (cm)">
   		<f:convertNumber integerOnly="true" type="number" />
   		</h:inputText>
 		<br />
-		<h:selectOneMenu value = "#{KalorieBB.aktywnosc}"> 
+		
+		<h:selectOneListbox value = "#{kalorieBB.aktywnosc}" > 
    		<f:selectItem itemValue = "brak" itemLabel = "Brak aktywnosci fizycznej" /> 
    		<f:selectItem itemValue = "mala" itemLabel = "Mała aktywnosc fizyczna" />
    		<f:selectItem itemValue = "srednia" itemLabel = "Srednia aktywnosc fizyczna" />
    		<f:selectItem itemValue = "duza" itemLabel = "Duza aktywnosc fizyczna" />
    		<f:selectItem itemValue = "bardzoduza" itemLabel = "Bardzo duza aktywnosc fizyczna" /> 
-		</h:selectOneMenu>
+		</h:selectOneListbox>
 		<br />
 		<h:messages id="msg" />
-		<h:commandButton value="Oblicz" action="#{KalorieBB.calc()}"/>
+		<h:commandButton value="Oblicz" action="#{kalorieBB.calc()}"/>
 		<br />
+		
 	</h:form>
 
 </h:body>

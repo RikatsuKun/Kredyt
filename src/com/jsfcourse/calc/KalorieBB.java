@@ -19,68 +19,63 @@ public class KalorieBB {
 	private double bmr;
 	private double kalorie;
 	
-	public String getPlec() {
-		return plec;
-	}
+@Inject
+FacesContext ctx;	
 
-	public void setPlec(String plec) {
-		this.plec = plec;
-	}
 
-	public int getWiek() {
-		return wiek;
-	}
+public String getPlec() {
+	return plec;
+}
 
-	public void setWiek(int wiek) {
-		this.wiek = wiek;
-	}
+public double getBmr() {
+	return bmr;
+}
 
-	public int getWaga() {
-		return waga;
-	}
+public double getKalorie() {
+	return kalorie;
+}
 
-	public void setWaga(int waga) {
-		this.waga = waga;
-	}
+public void setPlec(String plec) {
+	this.plec = plec;
+}
 
-	public int getWzrost() {
-		return wzrost;
-	}
+public int getWiek() {
+	return wiek;
+}
 
-	public void setWzrost(int wzrost) {
-		this.wzrost = wzrost;
-	}
+public void setWiek(int wiek) {
+	this.wiek = wiek;
+}
 
-	public String getAktywnosc() {
-		return aktywnosc;
-	}
+public int getWaga() {
+	return waga;
+}
 
-	public void setAktywnosc(String aktywnosc) {
-		this.aktywnosc = aktywnosc;
-	}
+public void setWaga(int waga) {
+	this.waga = waga;
+}
 
-	public double getBmr() {
-		return bmr;
-	}
+public int getWzrost() {
+	return wzrost;
+}
 
-	public void setBmr(double bmr) {
-		this.bmr = bmr;
-	}
+public void setWzrost(int wzrost) {
+	this.wzrost = wzrost;
+}
 
-	public double getKalorie() {
-		return kalorie;
-	}
+public String getAktywnosc() {
+	return aktywnosc;
+}
 
-	public void setKalorie(double kalorie) {
-		this.kalorie = kalorie;
-	}
-	@Inject
-	FacesContext ctx;
+public void setAktywnosc(String aktywnosc) {
+	this.aktywnosc = aktywnosc;
+}
 
 	public boolean obliczKalorie() {
 		try {
+			
 			String plec=this.plec;
-			int wiek=this.wiek;
+			int wiek =this.wiek; 
 			int waga=this.waga;
 			int wzrost=this.wzrost;
 			String aktywnosc=this.aktywnosc;						
