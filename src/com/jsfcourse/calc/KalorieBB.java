@@ -74,11 +74,12 @@ public void setAktywnosc(String aktywnosc) {
 	public boolean obliczKalorie() {
 		try {
 			
-			String plec=this.plec;
-			int wiek =this.wiek; 
-			int waga=this.waga;
-			int wzrost=this.wzrost;
-			String aktywnosc=this.aktywnosc;						
+			String plec = this.plec;
+			int wiek = this.wiek; 
+			int waga = this.waga;
+			int wzrost = this.wzrost;
+			String aktywnosc = this.aktywnosc;						
+						
 			
 			//oblicz bmr w zaleznosci od plci
 			switch(plec) {
