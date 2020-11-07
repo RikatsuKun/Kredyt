@@ -13,28 +13,45 @@
 	<h1>JSF 02 - Oblicz Kalorie</h1>
 
 	<h:form>
-		<h:panelGrid id="grid" cellpadding="3">
+		<h:panelGrid id="grid">
 		<p:outputLabel for="plec" value="Płeć:" />
-  		<p:selectOneRadio value="#{kalorieBB.plec}" id="plec" required="true">
+  		<p:selectOneRadio value="#{kalorieBB.plec}" id="plec" 
+  		required="true" requiredMessage="Musisz wybrać płeć">
   		<f:selectItem itemValue="f" itemLabel="Kobieta" />
    		<f:selectItem itemValue="m" itemLabel="Mezczyzna" />
    		</p:selectOneRadio>
    		<p:message for ="plec"/>
 		
 		<p:outputLabel for="wiek" value="Wiek (10-99):"/>
-		<p:inputText id="wiek" value="#{kalorieBB.wiek}"/>   		
+		<p:inputText id="wiek" value="#{kalorieBB.wiek}"
+		required="true" requiredMessage="Musisz podać wiek"
+		converterMessage="Wiek musi być liczbą całkowitą"
+		validatorMessage="Wiek musi być z zakresu 10-99">
+			<f:validateLongRange minimum="10" maximum="99"/>
+		</p:inputText>   		
 		<p:message for ="wiek"/>
 		
 		<p:outputLabel for="waga" value="Waga(kg):"/>
-  		<p:inputText id="waga" value="#{kalorieBB.waga}"/> 		 		
+  		<p:inputText id="waga" value="#{kalorieBB.waga}"
+  		required="true" requiredMessage="Musisz podać wagę"
+  		converterMessage="Waga musi być liczbą całkowitą"
+  		validatorMessage="Waga nie może być zerowa lub ujemna">
+  		<f:validateLongRange minimum="1"/>
+  		</p:inputText> 		 		
 		<p:message for ="waga"/>
 		
 		<p:outputLabel for="wzrost" value="Wzrost(cm):"/>
-		<p:inputText id="wzrost" value="#{kalorieBB.wzrost}"/>  		  		
+		<p:inputText id="wzrost" value="#{kalorieBB.wzrost}"
+		required="true" requiredMessage="Musisz podać wzrost"
+		converterMessage="Wzrost musi być liczbą całkowitą"
+		validatorMessage="Wzrost nie może być zerowy lub ujemny">
+		<f:validateLongRange minimum="1"/>
+		</p:inputText>  		  		
 		<p:message for ="wzrost"/>
 		
 		<p:outputLabel for="aktywnosc" value="Wybierz swoją aktywność:" />
-		<p:selectOneListbox id="aktywnosc" value = "#{kalorieBB.aktywnosc}"> 
+		<p:selectOneListbox id="aktywnosc" value = "#{kalorieBB.aktywnosc}"
+		required="true" requiredMessage="Musisz wybrać aktywność"> 
    		<f:selectItem itemValue = "brak" itemLabel = "Brak aktywnosci fizycznej" /> 
    		<f:selectItem itemValue = "mala" itemLabel = "Mała aktywnosc fizyczna" />
    		<f:selectItem itemValue = "srednia" itemLabel = "Srednia aktywnosc fizyczna" />
